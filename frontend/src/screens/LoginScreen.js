@@ -34,6 +34,7 @@ const LoginScreen = (props) => {
   return (
     <FormContainer>
       <h1>Login</h1>
+      {loading && <Loader />}
       {error ? <Message variant="danger">{error}</Message> : null}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="email">

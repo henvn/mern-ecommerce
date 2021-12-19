@@ -1,13 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Alert } from 'react-bootstrap'
 
-const Message = ({ variant, children}) => {
+const Message = ({ timeout, variant, children}) => {
+    const [show, setShow] = useState(true)
+    if(timeout) {
+        setTimeout(() => {
+          setShow(false)
+        }, timeout)
+    }
     return (
-        <Alert variant={variant}>
-            {children}
-        </Alert>
-            
-    
+      <>
+       {show ? <Alert variant={variant}>{children}</Alert> : null}
+      </>
     )
 }
 
