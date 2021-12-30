@@ -12,7 +12,6 @@ const ProfileScreen = (props) => {
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [message, setMessage] = useState(null)
-  
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -48,9 +47,9 @@ const ProfileScreen = (props) => {
       //DISPATCH UPDATE PROFILE
       dispatch(updateUserProfile({ id: user._id, name, email, password }))
       setMessage(null)
-
     }
   }
+  
 
   return (
     <Row>
@@ -58,7 +57,11 @@ const ProfileScreen = (props) => {
         <h2>User Profile</h2>
         {message ? <Message variant="danger">{message}</Message> : null}
         {error ? <Message variant="danger">{error}</Message> : null}
-        {success ? <Message  timeout={10000} variant="success">Profile Updated</Message> : null}
+        {success ? (
+          <Message variant="success">
+            Profile Updated
+          </Message>
+        ) : null}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="name">
@@ -67,7 +70,9 @@ const ProfileScreen = (props) => {
               type="name"
               placeholder="Enter name"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => {
+                setName(e.target.value)
+              }}
             ></Form.Control>
           </Form.Group>
 
