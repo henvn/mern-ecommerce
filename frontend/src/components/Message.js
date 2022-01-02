@@ -2,12 +2,12 @@ import React, { useState } from "react"
 import { Alert } from "react-bootstrap"
 
 
-const Message = ({ variant, children }, getState) => {
+const Message = ({ variant, children, status }, getState) => {
   const [show, setShow] = useState(true)
 
   return (
     <>
-      {show && (variant==='danger' ? <Alert variant={variant} onClose={() => setShow(false)} dismissible>{children}</Alert> : <Alert variant={variant}>{children}</Alert>)}
+      {show && ((variant==='danger') && (status==='false') ? <Alert variant={variant} onClose={() => setShow(false)} dismissible>{children}</Alert> :<Alert variant={variant}>{children}</Alert>) }
     </>
   )
   
@@ -15,6 +15,7 @@ const Message = ({ variant, children }, getState) => {
 
 Message.defaultProps = {
   variant: "info",
+  status: true
 }
 
 export default Message
