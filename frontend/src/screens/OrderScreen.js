@@ -14,7 +14,7 @@ const OrderScreen = () => {
 
   const [sdkReady, setSdkReady] = useState(false)
 
-  const navigate = useNavigate()
+
   const dispatch = useDispatch()
 
   const orderDetails = useSelector((state) => state.orderDetails)
@@ -38,7 +38,7 @@ const OrderScreen = () => {
     const addPaypalScript = async () => {
       const { data: clientId } = await axios.get("/config/paypal")
       const script = document.createElement("script")
-      script.type = "text.javascript"
+      script.type = "text/javascript"
       script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
       script.async = true
       script.onload = () => {
@@ -89,7 +89,7 @@ const OrderScreen = () => {
                 {order.shippingAddress.postalCode},
                 {order.shippingAddress.country}
               </p>
-              {order.isPaid ? (
+              {order.isDelivered ? (
                 <Message variant="success">
                   Delivered on {order.deliveredAt}
                 </Message>
