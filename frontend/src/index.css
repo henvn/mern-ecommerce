@@ -9,13 +9,11 @@ a {
 h1 {
   font-size: 1.8rem;
   padding: 1rem;
-  
 }
 
 h2 {
   font-size: 1.4rem;
   padding: 0.5rem;
-  
 }
 
 h3 {
@@ -23,4 +21,32 @@ h3 {
 }
 .rating span {
   margin: 0.1rem;
+}
+
+/* carousel */
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+  background-color: #000;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 0;
+}
+
+.carousel-caption h2 {
+  color: #fff;
+}
+
+.carousel a {
+  margin: 0 auto;
+}
+
+.carousel img {
+  height: 300px;
+  padding: 20px;
+  margin: 30px;
+  border-radius: 50%;
 }
